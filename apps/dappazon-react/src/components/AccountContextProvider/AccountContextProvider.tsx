@@ -1,25 +1,27 @@
-import { BrowserProvider, Signer } from "ethers";
+import { Signer } from "ethers";
+import { BrowserProvider } from "ethers";
 import { FC, PropsWithChildren, createContext } from "react";
 import { useProvider } from "~/hooks/useProvider";
+import { useSigner } from "~/hooks/useSigner";
 
 type IAccountContext = {
-  signer: Signer | null;
   provider: BrowserProvider | null;
-  getProvider: () => void;
+  signer: Signer | null;
   getSigner: () => Promise<void>;
 };
 export const AccountContext = createContext<IAccountContext>(
   {} as IAccountContext
 );
-
+// todo: do we really need this context?
+// Whenever we need the provider or signer, we can directly use the hooks!
 export const AccountContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const { getProvider, getSigner, signer, provider } = useProvider();
+  const provider = useProvider();
+  const { signer, getSigner } = useSigner();
   return (
     <AccountContext.Provider
       value={{
-        signer,
         provider,
-        getProvider,
+        signer,
         getSigner,
       }}>
       {children}

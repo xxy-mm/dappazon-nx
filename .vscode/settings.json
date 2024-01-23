@@ -8,5 +8,6 @@
     "**/Thumbs.db": true
   },
   "hide-files.files": [],
-  "cSpell.words": ["dappazon"]
+  "cSpell.words": ["dappazon"],
+  "todo-tree.tree.showBadges": true
 }

@@ -5,14 +5,11 @@ import { AccountContext } from "../AccountContextProvider";
 
 function Navigation() {
   const [address, setAddress] = useState<string | null>(null);
-  const { signer, getSigner, getProvider } = useContext(AccountContext);
+  const { signer, getSigner, provider } = useContext(AccountContext);
 
   const login = async () => {
     if (!signer) return await getSigner();
   };
-  useEffect(() => {
-    getProvider();
-  }, [getProvider]);
 
   useEffect(() => {
     async function getAddress() {
