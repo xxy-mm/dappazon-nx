@@ -1,0 +1,16 @@
+{
+  "name": "@xxy/dappazon-contract",
+  "scripts": {
+    "build": "hardhat clean && hardhat compile",
+    "start": "hardhat node",
+    "dev": "npm run start && npm run deploy",
+    "deploy": "hardhat run ./scripts/deploy.ts --network localhost"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.0.1"
+  },
+  "devDependencies": {
+    "hardhat": "2.19.4",
+    "@nomicfoundation/hardhat-toolbox": "4.0.0"
+  }
+}

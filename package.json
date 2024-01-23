@@ -1,15 +1,20 @@
 {
-  "name": "xxy",
+  "name": "dappazon-nx",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
   "devDependencies": {
     "@nx/js": "17.2.8",
-    "nx": "17.2.8"
+    "nx": "17.2.8",
+    "@types/lodash": "^4.14.202"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*",
+    "contracts/*"
   ]
 }
