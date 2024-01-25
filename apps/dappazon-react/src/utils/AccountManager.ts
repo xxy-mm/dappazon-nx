@@ -1,6 +1,6 @@
 import { BrowserProvider, Signer, ethers } from "ethers";
 
-// todo: create a manager to manger provider, signer, contract.
+// TODO: create a manager to manger provider, signer, contract.
 export class AccountManager {
   _provider!: Promise<BrowserProvider>;
   _signer!: Promise<Signer>;
@@ -19,7 +19,7 @@ export class AccountManager {
   get provider() {
     if (!this._provider) {
       this._provider = Promise.resolve(
-        new ethers.BrowserProvider(window.ethereum)
+        new ethers.BrowserProvider(window.ethereum),
       ).catch((err) => {
         console.error(`get provider failed with error: ${err}`);
         throw err;

@@ -10,14 +10,14 @@ export function useContract() {
 
   useEffect(() => {
     if (!provider) return;
-    // todo: support dynamic contract, user can select the contract, is it able to do that?
+    // TODO: support dynamic contract, user can select the contract, is it able to do that?
     // in order to do that, user should be possible to pass the arguments in to the application,
     // including contract address, abi, provider. The difficulty lies in the abi. Can I get the abi from contract address?
     // or there is a compatible abi I can use?
     const contract = new ethers.Contract(
       import.meta.env.VITE_CONTRACT_ADDRESS,
       abi,
-      provider
+      provider,
     );
     setContract(contract);
   }, [provider, setContract]);

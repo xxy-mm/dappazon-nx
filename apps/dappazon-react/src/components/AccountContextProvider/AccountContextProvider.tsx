@@ -10,10 +10,11 @@ type IAccountContext = {
   getSigner: () => Promise<void>;
 };
 export const AccountContext = createContext<IAccountContext>(
-  {} as IAccountContext
+  {} as IAccountContext,
 );
-// todo: do we really need this context?
-// Whenever we need the provider or signer, we can directly use the hooks!
+/**
+ * ! DEPRECATED: whenever we need the provider or signer, we can directly use the hooks!
+ */
 export const AccountContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const provider = useProvider();
   const { signer, getSigner } = useSigner();
@@ -23,7 +24,8 @@ export const AccountContextProvider: FC<PropsWithChildren> = ({ children }) => {
         provider,
         signer,
         getSigner,
-      }}>
+      }}
+    >
       {children}
     </AccountContext.Provider>
   );
