@@ -4,7 +4,10 @@
   "license": "MIT",
   "scripts": {
     "test": "nx run-many -t build test",
-    "prepare": "husky"
+    "prepare": "husky",
+    "frontend:dev": "nx dev @xxy/dappazon-react",
+    "contract:dev": "nx start @xxy/dappazon-contract",
+    "contract:deploy": "nx deploy @xxy/dappazon-contract"
   },
   "private": true,
   "dependencies": {

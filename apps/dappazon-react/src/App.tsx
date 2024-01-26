@@ -1,13 +1,19 @@
 import "./App.css";
 
 import Navigation from "~/components/Navigation/Navigation";
-import ProductList from "./components/ProductList/ProductList";
+
+import { CategoryListContainer } from "./components/CategoryListContainer";
+import { ProductDataProvider } from "./components/ProductDataProvider";
+import { ProductsContainer } from "./components/ProductsContainer";
 
 function App() {
   return (
     <div>
       <Navigation />
-      <ProductList />
+      <ProductDataProvider>
+        <CategoryListContainer />
+        <ProductsContainer />
+      </ProductDataProvider>
     </div>
   );
 }
