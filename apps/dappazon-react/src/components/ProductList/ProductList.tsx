@@ -2,8 +2,8 @@ import { Item } from "@xxy/dappazon-contract/src/types";
 import { useEffect, useState } from "react";
 import { useContract } from "~/hooks/useContract";
 import Product from "../Product/Product";
-import "./ProductList.css";
 import groupBy from "lodash/groupBy";
+
 function ProductList() {
   const contract = useContract();
   const [products, setProducts] = useState<Item[]>([]);

@@ -4,6 +4,7 @@
     "build": "hardhat clean && hardhat compile",
     "start": "hardhat node",
     "dev": "npm run start && npm run deploy",
+    "test": "hardhat test",
     "deploy": "hardhat run ./scripts/deploy.ts --network localhost"
   },
   "dependencies": {
