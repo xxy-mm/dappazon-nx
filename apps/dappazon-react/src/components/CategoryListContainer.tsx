@@ -1,6 +1,6 @@
 import { useContext } from "react";
+import { CategoryList } from "./CategoryList";
 import { ProductDataContext } from "./ProductDataProvider";
-import CategoryList from "./CategoryList";
 
 /**
  * ! a container is a component consumes the data provider's data directly, converting it into a form suitable for the pure component.

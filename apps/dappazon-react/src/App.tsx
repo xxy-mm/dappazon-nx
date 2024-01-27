@@ -3,8 +3,8 @@ import "./App.css";
 import Navigation from "~/components/Navigation/Navigation";
 
 import { CategoryListContainer } from "./components/CategoryListContainer";
+import { ProductsByCategoryContainer } from "./components/CategoryProductsSectionContainer";
 import { ProductDataProvider } from "./components/ProductDataProvider";
-import { ProductsContainer } from "./components/ProductsContainer";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Navigation />
       <ProductDataProvider>
         <CategoryListContainer />
-        <ProductsContainer />
+        <ProductsByCategoryContainer />
       </ProductDataProvider>
     </div>
   );

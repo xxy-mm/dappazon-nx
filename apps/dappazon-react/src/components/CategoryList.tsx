@@ -1,16 +1,15 @@
-import { PropsWithChildren } from "react";
+import { FC } from "react";
 
-type CategoryListProps = PropsWithChildren<{
+type CategoryListProps = {
   categories: string[];
-}>;
-function CategoryList(props: CategoryListProps) {
+};
+export const CategoryList: FC<CategoryListProps> = ({ categories }) => {
+  console.log(categories);
   return (
-    <div className="w-full flex">
-      {props.categories.map((category) => (
+    <ul className="w-full flex bg-slate-800 text-white justify-center gap-8">
+      {categories.map((category) => (
         <li key={category}>{category}</li>
       ))}
-    </div>
+    </ul>
   );
-}
-
-export default CategoryList;
+};
