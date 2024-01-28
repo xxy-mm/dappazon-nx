@@ -1,10 +1,10 @@
-import { BrowserProvider, Signer } from "ethers";
+import { AbstractProvider, Signer } from "ethers";
 import { FC, PropsWithChildren, createContext } from "react";
 import { useProvider } from "~/hooks/useProvider";
 import { useSigner } from "~/hooks/useSigner";
 
 type IAccountContext = {
-  provider: BrowserProvider | null;
+  provider: AbstractProvider | null;
   signer: Signer | null;
   getSigner: () => Promise<void>;
 };

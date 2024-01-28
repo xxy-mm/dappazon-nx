@@ -1,5 +1,5 @@
-import { Signer } from "ethers";
-import { useState, useCallback } from "react";
+import { BrowserProvider, Signer } from "ethers";
+import { useCallback, useState } from "react";
 import { useProvider } from "./useProvider";
 
 export function useSigner() {
@@ -10,7 +10,7 @@ export function useSigner() {
     if (signer) {
       return;
     }
-    if (provider) {
+    if (provider && provider instanceof BrowserProvider) {
       return provider
         .getSigner()
         .then((signer) => setSigner(signer))
@@ -18,7 +18,10 @@ export function useSigner() {
           console.error(`get signer failed with error: ${err}`);
         });
     }
-    return console.warn(`get signer failed: no provider provided.`);
+    if (provider) {
+      return console.error(`Please install a wallet first.`);
+    }
+    return console.warn(`get signer failed: no valid provider provided.`);
   }, [provider, signer]);
 
   return { signer, getSigner };
