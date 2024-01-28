@@ -7,6 +7,10 @@ type ProductsByCategorySectionProps = {
   category: string;
   products: Item[];
 };
+
+/**
+ * a pure component used to display a specified category and a list of products in that category.
+ */
 export const ProductsByCategorySection: FC<ProductsByCategorySectionProps> = ({
   category,
   products,

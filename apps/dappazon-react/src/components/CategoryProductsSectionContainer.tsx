@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { ProductDataContext } from "./ProductDataProvider";
 import { ProductsByCategorySection } from "./ProductsByCategorySection";
 
+/**
+ * retrieves the data from ProductDataProvider and passing it to the ProductsByCategorySection pure component.
+ */
 export const ProductsByCategoryContainer = () => {
   const productsByCategory = useContext(ProductDataContext);
 

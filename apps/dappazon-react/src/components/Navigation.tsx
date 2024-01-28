@@ -1,8 +1,7 @@
-import truncate from "lodash/truncate";
 import { useEffect, useState } from "react";
 import { useSigner } from "~/hooks/useSigner";
 
-function Navigation() {
+export const Navigation = () => {
   const [address, setAddress] = useState<string | null>(null);
   const { signer, getSigner } = useSigner();
   /**
@@ -22,7 +21,7 @@ function Navigation() {
   };
 
   const buttonText = address
-    ? truncate(address, { length: 8, omission: "" })
+    ? `${address.slice(0, 6)}...${address.slice(-4)}`
     : "connect";
 
   useEffect(() => {
@@ -38,11 +37,11 @@ function Navigation() {
       <h1 className="basis-1/4 text-center text-lg text-white">Dappazon</h1>
       <input
         type="text"
-        className="col-span-2 justify-self-stretch"
+        className="col-span-2 justify-self-stretch outline-none px-2 py-1"
       />
 
       <button
-        className="hover:bg-yellow-400 active:bg-yellow-500 bg-yellow-300 text-white rounded px-2 py-1 max-w-[75px] text-ellipsis overflow-hidden"
+        className="hover:bg-yellow-400 active:bg-yellow-500 bg-yellow-300 text-white rounded px-2 py-1 w-28 max-w-[85%] overflow-hidden text-ellipsis"
         role="button"
         onClick={() => login()}
       >
@@ -50,6 +49,4 @@ function Navigation() {
       </button>
     </div>
   );
-}
-
-export default Navigation;
+};

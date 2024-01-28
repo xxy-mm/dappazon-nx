@@ -3,7 +3,7 @@ import { CategoryList } from "./CategoryList";
 import { ProductDataContext } from "./ProductDataProvider";
 
 /**
- * ! a container is a component consumes the data provider's data directly, converting it into a form suitable for the pure component.
+ * ! a container is a component retrieves the provider's data, converting it into a form suitable for the pure component.
  * ! like data providers, containers should not have any styles
  */
 export const CategoryListContainer = () => {

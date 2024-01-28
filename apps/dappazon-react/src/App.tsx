@@ -1,6 +1,6 @@
 import "./App.css";
 
-import Navigation from "~/components/Navigation/Navigation";
+import { Navigation } from "~/components/Navigation";
 
 import { CategoryListContainer } from "./components/CategoryListContainer";
 import { ProductsByCategoryContainer } from "./components/CategoryProductsSectionContainer";
