@@ -2,6 +2,9 @@ import { BrowserProvider, Signer } from "ethers";
 import { useCallback, useState } from "react";
 import { useProvider } from "./useProvider";
 
+/**
+ * TODO: preserve login state after page refreshed.
+ */
 export function useSigner() {
   const provider = useProvider();
   const [signer, setSigner] = useState<Signer | null>(null);

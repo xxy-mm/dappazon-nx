@@ -8,13 +8,17 @@ import { ProductDataProvider } from "./components/ProductDataProvider";
 
 function App() {
   return (
-    <div>
-      <Navigation />
+    <>
+      <div className="sticky top-0 z-50">
+        <Navigation />
+      </div>
       <ProductDataProvider>
-        <CategoryListContainer />
+        <div className="sticky top-12 z-10">
+          <CategoryListContainer />
+        </div>
         <ProductsByCategoryContainer />
       </ProductDataProvider>
-    </div>
+    </>
   );
 }
 

@@ -16,7 +16,10 @@ export const ProductsByCategorySection: FC<ProductsByCategorySectionProps> = ({
   products,
 }) => {
   return (
-    <section className="border-red-100">
+    <section
+      className="border-red-100"
+      id={category}
+    >
       <CategoryTitle title={category} />
       <ProductList products={products} />
     </section>
