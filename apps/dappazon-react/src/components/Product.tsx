@@ -5,7 +5,7 @@ import { Rating } from "./Rating";
 type ProductProps = PropsWithChildren<{ product: Item }>;
 export const Product: FC<ProductProps> = ({ product }) => {
   return (
-    <div className="flex flex-col gap-2 overflow-hidden text-ellipsis text-sm mt-4">
+    <div className="flex flex-col gap-2 overflow-hidden text-ellipsis text-sm p-2">
       <div className="overflow-hidden">
         <img
           src={product.image}

@@ -7,9 +7,12 @@ type ProductsListProps = {
 };
 export const ProductList: FC<ProductsListProps> = ({ products }) => {
   return (
-    <ul className="w-full flex justify-center gap-1 md:gap-4 sm:gap-2">
+    <ul className="w-full flex justify-center gap-x-1 md:gap-x-4 sm:gap-x-2 lg:gap-x-8">
       {products.map((product) => (
-        <li key={product.id}>
+        <li
+          key={product.id}
+          className="hover:shadow"
+        >
           <Product product={product} />
         </li>
       ))}
