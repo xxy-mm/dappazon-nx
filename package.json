@@ -21,10 +21,5 @@
     "husky": "^9.0.6",
     "lint-staged": "^15.2.0",
     "nx": "17.2.8"
-  },
-  "workspaces": [
-    "packages/*",
-    "apps/*",
-    "contracts/*"
-  ]
+  }
 }

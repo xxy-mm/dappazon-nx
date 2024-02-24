@@ -7,7 +7,6 @@ type CategoryListProps = {
 
 export const CategoryList: FC<CategoryListProps> = ({ categories }) => {
   const ulRef = useRef<HTMLUListElement>(null);
-
   useScroll(ulRef.current);
 
   return (

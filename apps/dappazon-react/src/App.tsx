@@ -2,22 +2,38 @@ import "./App.css";
 
 import { Navigation } from "~/components/Navigation";
 
-import { CategoryListContainer } from "./components/CategoryListContainer";
-import { ProductsByCategoryContainer } from "./components/CategoryProductsSectionContainer";
-import { ProductDataProvider } from "./components/ProductDataProvider";
+import groupBy from "lodash/groupBy";
+import { useMemo } from "react";
+import { CategoryList } from "./components/CategoryList";
+import { ProductsByCategorySection } from "./components/ProductsByCategorySection";
+import { useProducts } from "./hooks/useProducts";
 
 function App() {
+  const products = useProducts();
+  const productsByCategory = useMemo(
+    () => groupBy(products, "category"),
+    [products]
+  );
+  const categories = useMemo(
+    () => Object.keys(productsByCategory),
+    [productsByCategory]
+  );
   return (
     <>
       <div className="sticky top-0 z-50">
         <Navigation />
       </div>
-      <ProductDataProvider>
-        <div className="sticky top-12 z-10">
-          <CategoryListContainer />
-        </div>
-        <ProductsByCategoryContainer />
-      </ProductDataProvider>
+
+      <div className="sticky top-12 z-10">
+        <CategoryList categories={categories} />
+      </div>
+      {Object.entries(productsByCategory).map(([category, products]) => (
+        <ProductsByCategorySection
+          key={category}
+          category={category}
+          products={products}
+        />
+      ))}
     </>
   );
 }
