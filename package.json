@@ -2,19 +2,24 @@
   "name": "dappazon-nx",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "test": "nx run-many -t build test",
+    "prepare": "husky",
+    "frontend:dev": "nx dev @xxy/dappazon-react",
+    "contract:dev": "nx start @xxy/dappazon-contract",
+    "contract:deploy": "nx deploy @xxy/dappazon-contract"
+  },
   "private": true,
   "dependencies": {
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.6.0",
+    "@commitlint/config-conventional": "^18.6.0",
     "@nx/js": "17.2.8",
-    "nx": "17.2.8",
-    "@types/lodash": "^4.14.202"
-  },
-  "workspaces": [
-    "packages/*",
-    "apps/*",
-    "contracts/*"
-  ]
+    "@types/lodash": "^4.14.202",
+    "husky": "^9.0.6",
+    "lint-staged": "^15.2.0",
+    "nx": "17.2.8"
+  }
 }

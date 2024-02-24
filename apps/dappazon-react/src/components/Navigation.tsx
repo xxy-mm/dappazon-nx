@@ -1,15 +1,14 @@
-import truncate from "lodash/truncate";
 import { useEffect, useState } from "react";
 import { useSigner } from "~/hooks/useSigner";
-import "./Navigation.css";
 
-function Navigation() {
+export const Navigation = () => {
   const [address, setAddress] = useState<string | null>(null);
   const { signer, getSigner } = useSigner();
-  /* TODO: I have to separate the functionality of getting address into two parts:
+  /**
+   * * I have to separate the functionality of getting address into two parts:
    * 1. get signer by event handler
    * 2. get address by useEffect hook
-   * Can I group the logic together in one place?
+   * ? Can I group the logic together in one place?
    * =======================================================================================================
    * Maybe I was wrong: the button just trigger a login action. The login may success or fail but that't not
    * the things which login action should handle.
@@ -21,6 +20,10 @@ function Navigation() {
     await getSigner();
   };
 
+  const buttonText = address
+    ? `${address.slice(0, 6)}...${address.slice(-4)}`
+    : "connect";
+
   useEffect(() => {
     async function getAddress() {
       if (!signer) return;
@@ -30,26 +33,20 @@ function Navigation() {
     getAddress();
   }, [signer]);
   return (
-    <div className="navigation">
-      <h1 className="navigation__brand">Dappazon</h1>
+    <div className="grid h-12 grid-cols-4 items-center justify-items-center bg-black">
+      <h1 className="basis-1/4 text-center text-lg text-white">Dappazon</h1>
       <input
         type="text"
-        className="navigation__search"
+        className="col-span-2 justify-self-stretch outline-none px-2 py-1"
       />
 
-      {address ? (
-        <button className="navigation__connect">
-          {truncate(address, { length: 8, omission: "" })}
-        </button>
-      ) : (
-        <button
-          className="navigation__connect"
-          onClick={() => login()}>
-          {"connect"}
-        </button>
-      )}
+      <button
+        className="hover:bg-yellow-400 active:bg-yellow-500 bg-yellow-300 text-white rounded px-2 py-1 w-28 max-w-[85%] overflow-hidden text-ellipsis"
+        role="button"
+        onClick={() => login()}
+      >
+        {buttonText}
+      </button>
     </div>
   );
-}
-
-export default Navigation;
+};
